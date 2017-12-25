@@ -1,0 +1,31 @@
+#container {
+	display: grid;
+	grid-template-columns: repeat(var(--side), 1fr);
+	grid-template-rows: repeat(var(--side), 1fr);
+
+	width: 35em;
+	height: 35em;
+
+	border-style: solid;
+
+	margin-top: 2em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#container div {
+	border-style: solid;
+	border-width: 0.01em;
+}
+
+.color {
+	background-color: #9e49bc;
+}
+
+.wrap {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+
+	margin-top: 1em;
+}

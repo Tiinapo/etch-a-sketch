@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Etch-a-sketch</title>
+    <link rel="stylesheet" href="etch-a-sketch.css">
+  </head>
+  <body>
+
+  	<div class="wrap">
+  	  <button>Reset</button>
+    </div>
+
+  	<div id="container"></div>
+
+  	<script>
+
+  		// Creates the default grid (16 * 16)
+
+  		let side = 16;
+  		let grid = side * side;
+  		let container = document.getElementById("container");
+
+  		document.getElementById("container").style.setProperty("--side", side);
+
+  		for (let i = 0; i < grid; i++) {
+  			div = document.createElement("div");
+  			container.appendChild(div);
+  		}
+
+  
+  		// Function for drawing
+
+  		function color() {
+  			let divs = container.querySelectorAll("div");
+
+  			divs.forEach((div) => {
+  				div.addEventListener("mouseover", (e) => {
+  					div.classList.add("color");
+  				});
+  			});
+  		}
+
+  		color();
+  		
+  		// Reset and resize 
+
+  		let button = document.querySelector("button");
+
+  		button.addEventListener("click", (e) => {
+  			side = prompt("Enter a number: ");
+  			grid = side * side;
+  			document.getElementById("container").style.setProperty("--side", side);
+
+  			while (container.firstChild) {
+  				container.removeChild(container.firstChild);
+  			}
+
+  			for (let i = 0; i < grid; i++) {
+  				div = document.createElement("div");
+  				container.appendChild(div);
+  			}
+
+  			color();
+  	    });
+
+  	</script>
+  </body>
+</html>
